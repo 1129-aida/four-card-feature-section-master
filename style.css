@@ -13,3 +13,107 @@
     src: url(./fonts/Poppins-SemiBold.woff2);
     font-weight: 600;
 }
+
+:root{
+    --TeamBuilder-border-color: hsl(0, 78%, 62%);
+    --Supervisor-border-color: hsl(180, 62%, 55%);
+    --Karma-border-color: hsl(34, 97%, 64%);
+    --Calculator-border-color: hsl(212, 86%, 64%);
+    --header-text-color: hsl(234, 12%, 34%);
+    --text-color: hsl(212, 6%, 44%);
+    --background-color: hsl(0, 0%, 100%);
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    color: var(--text-color);
+    display: grid;
+    place-items: center;
+    margin: 80px 28px;
+    background-color: var(--background-color);
+}
+
+main{
+    display: grid;
+    place-items: center;
+    gap: 50px;
+}
+
+header {
+    text-align: center;
+    max-width: 530px;
+}
+
+p { margin: 0;}
+
+h3 {
+    color: var(--header-text-color);
+    font-weight: 600;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 200;
+    margin: 0;
+}
+h2{
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--header-text-color);
+    margin: 0 0 0.5em 0;
+}
+
+.conteiner{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 40px;
+    align-items: center;
+}
+
+section {
+    box-shadow: 0px 5px 50px hsl(234, 12%, 80%);
+    padding: 2em;
+    border-radius: 8px;
+    width:  clamp(320px, 299px + 6vw, 380px);
+    height: fit-content;
+    display: grid;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+}
+
+.second {
+    display: grid;
+    gap: 40px;
+}
+
+.Supervisor {
+    border-top: 5px solid var(--Supervisor-border-color);
+}
+.TeamBuilder {
+    border-top: 5px solid var(--TeamBuilder-border-color);
+}
+.Karma {
+    border-top: 5px solid var(--Karma-border-color);
+}
+.Calculator {
+    border-top: 5px solid var(--Calculator-border-color);
+}
+
+svg {
+    justify-self: self-end;
+    margin-top: 2.5em;
+}
+
+@media(max-width: 600px) {
+    .conteiner{
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    }
+    h1,
+    h2{
+        font-size: 1.6em;
+    }
+}
