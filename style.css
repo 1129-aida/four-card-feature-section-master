@@ -14,6 +14,12 @@
     font-weight: 600;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root{
     --TeamBuilder-border-color: hsl(0, 78%, 62%);
     --Supervisor-border-color: hsl(180, 62%, 55%);
@@ -30,7 +36,8 @@ body{
     color: var(--text-color);
     display: grid;
     place-items: center;
-    margin: 80px 28px;
+    padding: 80px 28px;
+    margin: 0;
     background-color: var(--background-color);
 }
 
@@ -38,11 +45,13 @@ main{
     display: grid;
     place-items: center;
     gap: 50px;
+    width: 100%;
 }
 
 header {
     text-align: center;
     max-width: 530px;
+    width: 100%;
 }
 
 p { margin: 0;}
@@ -50,17 +59,17 @@ p { margin: 0;}
 h3 {
     color: var(--header-text-color);
     font-weight: 600;
-    font-size: 1.5em;
+    font-size: clamp(1.3em, calc(1.2273em + 0.0227vw), 1.5em);
     margin: 0;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: clamp(1.5em, calc(1.3182em + 0.0568vw), 2em);
     font-weight: 200;
     margin: 0;
 }
 h2{
-    font-size: 2em;
+    font-size: clamp(1.5em, calc(1.3182em + 0.0568vw), 2em);
     font-weight: 600;
     color: var(--header-text-color);
     margin: 0 0 0.5em 0;
@@ -68,17 +77,22 @@ h2{
 
 .conteiner{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns:  repeat(3, minmax(0, 1fr));
     gap: 40px;
     align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    min-width: 0;
 }
 
 section {
     box-shadow: 0px 5px 50px hsl(234, 12%, 80%);
     padding: 2em;
     border-radius: 8px;
-    width:  clamp(320px, 299px + 6vw, 380px);
     height: fit-content;
+    width: 100%;
+    max-width: 380px;
+    min-width: 0;
     display: grid;
     box-sizing: border-box;
     background-color: var(--background-color);
@@ -87,6 +101,7 @@ section {
 .second {
     display: grid;
     gap: 40px;
+    min-width: 0;
 }
 
 .Supervisor {
@@ -107,13 +122,29 @@ svg {
     margin-top: 2.5em;
 }
 
-@media(max-width: 600px) {
-    .conteiner{
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto;
-    }
-    h1,
-    h2{
-        font-size: 1.6em;
-    }
+@media (max-width: 900px) {
+  .conteiner {
+    grid-template-columns:  minmax(0, 1fr);
+    justify-items: center;
+    gap: 24px;
+    max-width: 380px;
+  }
+
+  .second {
+    width: 100%;
+  }
+
+  section {
+    max-width: none;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    padding: 48px 16px;
+  }
+
+  section {
+    padding: 24px;
+  }
 }
